@@ -6,6 +6,8 @@ window.addEventListener("load", function(){
         jsonPromise.then( function(json) {
             const container = document.getElementById("container");
 
+            container.innerHTML += `<p>Astronaut Count: ${json.length}</p>`
+
             json.sort(function(a, b){
                 return b.hoursInSpace - a.hoursInSpace;
             });
