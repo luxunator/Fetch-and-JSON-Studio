@@ -4,8 +4,12 @@ window.addEventListener("load", function(){
         fetchPromise.then( function(response) {
         const jsonPromise = response.json();
         jsonPromise.then( function(json) {
-            console.log(json)
             const container = document.getElementById("container");
+
+            json.sort(function(a, b){
+                return b.hoursInSpace - a.hoursInSpace;
+            });
+
             for (let i = 0; i < json.length; i++) {
                 container.innerHTML +=`
                     <div class="astronaut">
